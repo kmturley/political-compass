@@ -37,69 +37,80 @@
     <tbody>
       <tr class="question">
         <td>People need welfare support to combat inequality.</td>
-        <td><input type="radio" name="question1" /></td>
-        <td><input type="radio" name="question1" /></td>
-        <td><input type="radio" name="question1" /></td>
-        <td><input type="radio" name="question1" /></td>
-        <td><input type="radio" name="question1" /></td>
+        <td><input type="radio" name="question1" value="1" /></td>
+        <td><input type="radio" name="question1" value="0.5" /></td>
+        <td><input type="radio" name="question1" value="0" /></td>
+        <td><input type="radio" name="question1" value="-0.5" /></td>
+        <td><input type="radio" name="question1" value="-1" /></td>
       </tr>
       <tr class="question">
         <td>Freedom of big business is better for the economy.</td>
-        <td><input type="radio" name="question2" /></td>
-        <td><input type="radio" name="question2" /></td>
-        <td><input type="radio" name="question2" /></td>
-        <td><input type="radio" name="question2" /></td>
-        <td><input type="radio" name="question2" /></td>
+        <td><input type="radio" name="question2" value="-1" /></td>
+        <td><input type="radio" name="question2" value="-0.5" /></td>
+        <td><input type="radio" name="question2" value="0" /></td>
+        <td><input type="radio" name="question2" value="0.5" /></td>
+        <td><input type="radio" name="question2" value="1" /></td>
       </tr>
       <tr class="question">
         <td>Companies need regulating by the government.</td>
-        <td><input type="radio" name="question3" /></td>
-        <td><input type="radio" name="question3" /></td>
-        <td><input type="radio" name="question3" /></td>
-        <td><input type="radio" name="question3" /></td>
-        <td><input type="radio" name="question3" /></td>
+        <td><input type="radio" name="question3" value="1" /></td>
+        <td><input type="radio" name="question3" value="0.5" /></td>
+        <td><input type="radio" name="question3" value="0" /></td>
+        <td><input type="radio" name="question3" value="-0.5" /></td>
+        <td><input type="radio" name="question3" value="-1" /></td>
       </tr>
       <tr class="question">
         <td>Wages are always fair, as companies will match market rates.</td>
-        <td><input type="radio" name="question4" /></td>
-        <td><input type="radio" name="question4" /></td>
-        <td><input type="radio" name="question4" /></td>
-        <td><input type="radio" name="question4" /></td>
-        <td><input type="radio" name="question4" /></td>
+        <td><input type="radio" name="question4" value="-1" /></td>
+        <td><input type="radio" name="question4" value="-0.5" /></td>
+        <td><input type="radio" name="question4" value="0" /></td>
+        <td><input type="radio" name="question4" value="0.5" /></td>
+        <td><input type="radio" name="question4" value="1" /></td>
       </tr>
       <tr class="question">
         <td>Government may spy on citizens to combat terrorism.</td>
-        <td><input type="radio" name="question5" /></td>
-        <td><input type="radio" name="question5" /></td>
-        <td><input type="radio" name="question5" /></td>
-        <td><input type="radio" name="question5" /></td>
-        <td><input type="radio" name="question5" /></td>
+        <td><input type="radio" name="question5" value="-1" /></td>
+        <td><input type="radio" name="question5" value="-0.5" /></td>
+        <td><input type="radio" name="question5" value="0" /></td>
+        <td><input type="radio" name="question5" value="0.5" /></td>
+        <td><input type="radio" name="question5" value="1" /></td>
       </tr>
       <tr class="question">
         <td>Government should be less involved in the day to day life of its citizens.</td>
-        <td><input type="radio" name="question6" /></td>
-        <td><input type="radio" name="question6" /></td>
-        <td><input type="radio" name="question6" /></td>
-        <td><input type="radio" name="question6" /></td>
-        <td><input type="radio" name="question6" /></td>
+        <td><input type="radio" name="question6" value="1" /></td>
+        <td><input type="radio" name="question6" value="0.5" /></td>
+        <td><input type="radio" name="question6" value="0" /></td>
+        <td><input type="radio" name="question6" value="-0.5" /></td>
+        <td><input type="radio" name="question6" value="-1" /></td>
       </tr>
       <tr class="question">
         <td>Government must project strength to succeed.</td>
-        <td><input type="radio" name="question7" /></td>
-        <td><input type="radio" name="question7" /></td>
-        <td><input type="radio" name="question7" /></td>
-        <td><input type="radio" name="question7" /></td>
-        <td><input type="radio" name="question7" /></td>
+        <td><input type="radio" name="question7" value="-1" /></td>
+        <td><input type="radio" name="question7" value="-0.5" /></td>
+        <td><input type="radio" name="question7" value="0" /></td>
+        <td><input type="radio" name="question7" value="0.5" /></td>
+        <td><input type="radio" name="question7" value="1" /></td>
       </tr>
       <tr class="question">
         <td>The smaller the government, the freer the people.</td>
-        <td><input type="radio" name="question8" /></td>
-        <td><input type="radio" name="question8" /></td>
-        <td><input type="radio" name="question8" /></td>
-        <td><input type="radio" name="question8" /></td>
-        <td><input type="radio" name="question8" /></td>
+        <td><input type="radio" name="question8" value="1" /></td>
+        <td><input type="radio" name="question8" value="0.5" /></td>
+        <td><input type="radio" name="question8" value="0" /></td>
+        <td><input type="radio" name="question8" value="-0.5" /></td>
+        <td><input type="radio" name="question8" value="-1" /></td>
       </tr>
     </tbody>
   </table>
+  <button onclick="update()">Update</button>
+  <script>
+    var inputs = document.querySelectorAll('input');
+    function update() {
+      inputs.forEach(function(input) {
+        if (input.checked) {
+          console.log(input.name, input.value);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
