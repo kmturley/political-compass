@@ -5,13 +5,27 @@
   <title>Political Compass</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    .question {
+      text-align: center;
+    }
+    .question td,
+    .question-head th {
+      padding: 1rem;
+    }
+    .question td:first-child,
+    .question-head th:first-child {
+      padding-left: 0;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <h1>Political Compass</h1>
   <p>Example showing calculation of political views based on answers to questions.</p>
   <table class="questions">
     <thead>
-      <tr>
+      <tr class="question-head">
         <th>Question</th>
         <th>Strongly disagree</th>
         <th>Disagree</th>
@@ -28,6 +42,62 @@
         <td><input type="radio" name="question1" /></td>
         <td><input type="radio" name="question1" /></td>
         <td><input type="radio" name="question1" /></td>
+      </tr>
+      <tr class="question">
+        <td>Freedom of big business is better for the economy.</td>
+        <td><input type="radio" name="question2" /></td>
+        <td><input type="radio" name="question2" /></td>
+        <td><input type="radio" name="question2" /></td>
+        <td><input type="radio" name="question2" /></td>
+        <td><input type="radio" name="question2" /></td>
+      </tr>
+      <tr class="question">
+        <td>Companies need regulating by the government.</td>
+        <td><input type="radio" name="question3" /></td>
+        <td><input type="radio" name="question3" /></td>
+        <td><input type="radio" name="question3" /></td>
+        <td><input type="radio" name="question3" /></td>
+        <td><input type="radio" name="question3" /></td>
+      </tr>
+      <tr class="question">
+        <td>Wages are always fair, as companies will match market rates.</td>
+        <td><input type="radio" name="question4" /></td>
+        <td><input type="radio" name="question4" /></td>
+        <td><input type="radio" name="question4" /></td>
+        <td><input type="radio" name="question4" /></td>
+        <td><input type="radio" name="question4" /></td>
+      </tr>
+      <tr class="question">
+        <td>Government may spy on citizens to combat terrorism.</td>
+        <td><input type="radio" name="question5" /></td>
+        <td><input type="radio" name="question5" /></td>
+        <td><input type="radio" name="question5" /></td>
+        <td><input type="radio" name="question5" /></td>
+        <td><input type="radio" name="question5" /></td>
+      </tr>
+      <tr class="question">
+        <td>Government should be less involved in the day to day life of its citizens.</td>
+        <td><input type="radio" name="question6" /></td>
+        <td><input type="radio" name="question6" /></td>
+        <td><input type="radio" name="question6" /></td>
+        <td><input type="radio" name="question6" /></td>
+        <td><input type="radio" name="question6" /></td>
+      </tr>
+      <tr class="question">
+        <td>Government must project strength to succeed.</td>
+        <td><input type="radio" name="question7" /></td>
+        <td><input type="radio" name="question7" /></td>
+        <td><input type="radio" name="question7" /></td>
+        <td><input type="radio" name="question7" /></td>
+        <td><input type="radio" name="question7" /></td>
+      </tr>
+      <tr class="question">
+        <td>The smaller the government, the freer the people.</td>
+        <td><input type="radio" name="question8" /></td>
+        <td><input type="radio" name="question8" /></td>
+        <td><input type="radio" name="question8" /></td>
+        <td><input type="radio" name="question8" /></td>
+        <td><input type="radio" name="question8" /></td>
       </tr>
     </tbody>
   </table>

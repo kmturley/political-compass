@@ -11,18 +11,18 @@ Economic Liberal (Equality)
 - Companies need regulating by the government.
 
 Economic Conservative (Hierachy)
-- Freedom of big business is the best practical way a society can prosper.
-- Wages are always fair, as big business knows best what a worker's labour is worth.
+- Freedom of big business is better for the economy.
+- Wages are always fair, as companies will match market rates.
 
 
 # Social values
 
 Social Authoritarian (State)
-- Sometimes it is right that the government may spy on its citizens, to combat extremists and terrorists.
-- Strength is necessary for any government to succeed.
+- Government may spy on citizens to combat terrorism.
+- Government must project strength to succeed.
 
 Social Libertarian (Individual)
-- The government should be less involved in the day to day life of its citizens.
+- Government should be less involved in the day to day life of its citizens.
 - The smaller the government, the freer the people.
 
 
