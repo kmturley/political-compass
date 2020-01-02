@@ -6,6 +6,40 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
+    .chart {
+      height: 100px;
+      position: relative;
+      width: 100px;
+    }
+    .chart .dot {
+      background-color: #ffcc00;
+      border-radius: 100%;
+      height: 10px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+    }
+    .chart .row {
+      border-top: 1px solid #333;
+      box-sizing: border-box;
+      display: flex;
+      height: 50%;
+      width: 100%;
+    }
+    .chart .row:last-child {
+      border-bottom: 1px solid #333;
+    }
+    .chart .col {
+      border-left: 1px solid #333;
+      box-sizing: border-box;
+      height: 100%;
+      width: 50%;
+    }
+    .chart .col:last-child {
+      border-right: 1px solid #333;
+    }
     .question {
       text-align: center;
     }
@@ -23,6 +57,17 @@
 <body>
   <h1>Political Compass</h1>
   <p>Example showing calculation of political views based on answers to questions.</p>
+  <div class="chart">
+    <div class="dot" id="dot"></div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </div>
   <table class="questions">
     <thead>
       <tr class="question-head">
@@ -103,6 +148,7 @@
   </table>
   <button onclick="update()">Update</button>
   <script>
+    var dot = document.getElementById('dot');
     var inputs = document.querySelectorAll('input');
     var questions = {
       question1: {
@@ -154,21 +200,25 @@
         if (input.checked) {
           answers[input.name] = Number(input.value);
           var question = questions[input.name];
+          var average = true;
           if (!results[question.type]) {
             results[question.type] = 0;
+            average = false;
           }
           if (question.flip) {
             results[question.type] = results[question.type] - answers[input.name];
           } else {
             results[question.type] = results[question.type] + answers[input.name];
           }
-          if (index > 0) {
+          if (average === true) {
             results[question.type] = results[question.type] / 2;
           }
         }
       });
       console.log('answers', answers);
       console.log('results', results);
+      dot.style.left = ((results['economic'] + 1) / 2) * 100 + '%';
+      dot.style.top = ((results['social'] + 1) / 2) * 100 + '%';
     }
 
     listen();
