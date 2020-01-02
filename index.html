@@ -104,13 +104,74 @@
   <button onclick="update()">Update</button>
   <script>
     var inputs = document.querySelectorAll('input');
-    function update() {
+    var questions = {
+      question1: {
+        type: 'economic',
+        flip: true
+      },
+      question2: {
+        type: 'economic',
+        flip: false
+      },
+      question3: {
+        type: 'economic',
+        flip: true
+      },
+      question4: {
+        type: 'economic',
+        flip: false
+      },
+      question5: {
+        type: 'social',
+        flip: false
+      },
+      question6: {
+        type: 'social',
+        flip: true
+      },
+      question7: {
+        type: 'social',
+        flip: false
+      },
+      question8: {
+        type: 'social',
+        flip: true
+      }
+    };
+
+    function listen() {
       inputs.forEach(function(input) {
-        if (input.checked) {
-          console.log(input.name, input.value);
-        }
+        input.addEventListener('change', function() {
+          update();
+        });
       });
     }
+
+    function update() {
+      var answers = {};
+      var results = {};
+      inputs.forEach(function(input, index) {
+        if (input.checked) {
+          answers[input.name] = Number(input.value);
+          var question = questions[input.name];
+          if (!results[question.type]) {
+            results[question.type] = 0;
+          }
+          if (question.flip) {
+            results[question.type] = results[question.type] - answers[input.name];
+          } else {
+            results[question.type] = results[question.type] + answers[input.name];
+          }
+          if (index > 0) {
+            results[question.type] = results[question.type] / 2;
+          }
+        }
+      });
+      console.log('answers', answers);
+      console.log('results', results);
+    }
+
+    listen();
   </script>
 </body>
 </html>
