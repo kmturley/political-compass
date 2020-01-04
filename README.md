@@ -1,7 +1,11 @@
+![Political Compass](src/images/political-compass-logo.png)
+
 # political-compass
 
 Quiz using Economic and Social questions to score answers and plot results on a chart of political ideologies.
 
+![Question](src/images/question-example.png)
+![Chart](src/images/chart-example.png)
 
 ## Questions
 
