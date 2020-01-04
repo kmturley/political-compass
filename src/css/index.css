@@ -55,6 +55,7 @@ button img {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 2;
 }
 
 .logo {
@@ -106,7 +107,7 @@ button img {
 @media (min-width: 48rem) {
 
   body {
-    background: linear-gradient(90deg, #fafafa calc(66.66% - 3rem), #fff 33.33%);
+    background: linear-gradient(90deg, #fafafa calc(50% - 2rem), #fff calc(50% - 2rem));
   }
 
   .container {
@@ -133,10 +134,10 @@ button img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 66.66%;
+    width: 50%;
   }
   
   .content .output {
-    width: 33.33%;
+    width: 50%;
   }
 }
