@@ -1,32 +1,24 @@
 # political-compass
 
-Example quiz plotting users' economic and social answers on a chart. Based on the Wikipedia article:
+Quiz using Economic and Social questions to score answers and plot results on a chart of political ideologies.
+
+
+## Questions
+
+Based on the Political spectrum article:
 https://en.wikipedia.org/wiki/Political_spectrum
 
-
-# Economic values
-
-Economic Liberal (Equality)
-- People need welfare support to combat inequality.
-- Companies need regulating by the government.
-
-Economic Conservative (Hierachy)
-- Freedom of big business is better for the economy.
-- Wages are always fair, as companies will match market rates.
+- People need welfare support to combat inequality (believes in Economic Equality)
+- Companies need regulating by the government (believes in Economic Equality)
+- Freedom of big business is better for the economy (believes in Economic Hierachy)
+- Wages are always fair, as companies will match market rates (believes in Economic Hierachy)
+- Government may spy on citizens to combat terrorism (believes in State Rule)
+- Government must project strength to succeed (believes in State Rule)
+- Government should be less involved in the day to day life of its citizens (believes in Individual Rule)
+- The smaller the government, the freer the people (believes in Individual Rule)
 
 
-# Social values
-
-Social Authoritarian (State)
-- Government may spy on citizens to combat terrorism.
-- Government must project strength to succeed.
-
-Social Libertarian (Individual)
-- Government should be less involved in the day to day life of its citizens.
-- The smaller the government, the freer the people.
-
-
-# Answers
+## Answers
 
 Based on the Likert scale:
 https://en.wikipedia.org/wiki/Likert_scale
@@ -38,9 +30,26 @@ https://en.wikipedia.org/wiki/Likert_scale
 - Strongly agree
 
 
+## Ideologies
+
+Based on the political ideologies article:
+https://en.wikipedia.org/wiki/List_of_political_ideologies
+
+- Communism (believes in State Rule and Economic Equality)
+- Authoritarianism (believes in State Rule)
+- Fascism (believes in State Rule and Economic Hierachy)
+- Socialism (believes in Economic Equality)
+- Centerism
+- Capitalism (believes in Economic Hierachy)
+- Collectivism (believes in Individual Rule and Economic Equality)
+- Libertarianism (believes in Individual Rule)
+- Individualism (believes in Individual Rule and Economic Hierachy)
+
+
 ## Directory structure
 
-    /                               --> Source files
+    /                                  --> Project root
+    /src                               --> Source files
 
 
 ## Contact
