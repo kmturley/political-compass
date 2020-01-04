@@ -2,10 +2,9 @@
   var canvas = document.getElementById('chart');
   var context = canvas.getContext('2d');
 
-  function setupChart() {
+  function setup() {
     var height = canvas.height = canvas.parentNode.clientWidth; // use width for square aspect ratio
     var width = canvas.width = canvas.parentNode.clientWidth;
-    console.log('setupChart', width, height);
     context.clearRect(0, 0, width, height);
     drawLine(
       { x: 0, y: height / 2},
@@ -24,8 +23,8 @@
   }
 
   window.addEventListener('resize', function() {
-    setupChart();
+    setup();
   });
 
-  setupChart();
+  setup();
 }());

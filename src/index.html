@@ -17,32 +17,34 @@
     <div class="content">
       <div class="input">
         <div class="questions">
-          <h4>Question 1</h4>
-          <h1>People need welfare support to combat inequality?</h1>
+          <h4 id="number"></h4>
+          <h1 id="title"></h1>
         </div>
-        <div class="answers">
-          <button class="answer">
+        <div class="answers" id="answers">
+          <button class="answer" data-num="-1">
             <img src="images/disagree-strongly.svg" alt="Disagree strongly" />
           </button>
-          <button class="answer">
+          <button class="answer" data-num="-0.5">
             <img src="images/disagree.svg" alt="Disagree" />
           </button>
-          <button class="answer">
+          <button class="answer" data-num="0">
             <img src="images/neither.svg" alt="Neither agree nor disagree" />
           </button>
-          <button class="answer">
+          <button class="answer" data-num="0.5">
             <img src="images/agree.svg" alt="Agree" />
           </button>
-          <button class="answer">
+          <button class="answer" data-num="1">
             <img src="images/agree-strongly.svg" alt="Agree strongly" />
           </button>
         </div>
       </div>
       <div class="output">
+        <div class="dot" id="dot"></div>
         <canvas class="chart" id="chart"></canvas>
       </div>
     </div>
   </div>
-  <script src="js/index.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/questions.js"></script>
 </body>
 </html>

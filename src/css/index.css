@@ -46,6 +46,7 @@ button:hover {
 
 button img {
   display: block;
+  pointer-events: none;
 }
 
 /* container */
@@ -81,15 +82,31 @@ button img {
 
 .output {
   background-color: #fff;
+  position: relative;
 }
 
 .output .chart {
   display: block;
 }
 
+.output .dot {
+  background-color: #ffcc00;
+  border-radius: 100%;
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+}
+
 /* 768px = 48rem */
 
 @media (min-width: 48rem) {
+
+  body {
+    background: linear-gradient(90deg, #fafafa calc(66.66% - 3rem), #fff 33.33%);
+  }
 
   .container {
     align-items: flex-start;
