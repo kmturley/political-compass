@@ -9,6 +9,7 @@
     context.clearRect(0, 0, width, height);
     context.font = '16px sans-serif';
     textHeight = context.measureText('M').width;
+    drawGrid(width, height, width / 40, 0);
     drawLine(
       { x: 0, y: height / 2},
       { x: width, y: height / 2}
@@ -33,11 +34,28 @@
     });
   }
 
+  function drawGrid(bw, bh, gap, p) {
+    context.beginPath();
+    context.strokeStyle = '#eee';
+    for (var x = 0; x <= bw; x += gap) {
+      context.moveTo(0.5 + x + p, p);
+      context.lineTo(0.5 + x + p, bh + p);
+    }
+    for (var x = 0; x <= bh; x += gap) {
+      context.moveTo(p, 0.5 + x + p);
+      context.lineTo(bw + p, 0.5 + x + p);
+    }
+    context.stroke();
+    context.closePath();
+  }
+
   function drawLine(start, end) {
-    context.fillStyle = '#000';
+    context.beginPath();
+    context.strokeStyle = '#333';
     context.moveTo(start.x, start.y);
     context.lineTo(end.x, end.y);
     context.stroke();
+    context.closePath();
   }
 
   function drawText(item) {
@@ -56,9 +74,9 @@
     if (item.vertical === 'middle') {
       item.y += textHeight / 2;
     }
-    context.fillStyle = '#fff';
-    context.fillRect(item.x - padding, item.y - textHeight - padding, textWidth + (padding * 2), textHeight + (padding * 2));
-    context.fillStyle = '#000';
+    // context.fillStyle = '#fff';
+    // context.fillRect(item.x - padding, item.y - textHeight - padding, textWidth + (padding * 2), textHeight + (padding * 2));
+    context.fillStyle = '#454545';
     context.fillText(item.text, item.x, item.y);
   }
 
