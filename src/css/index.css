@@ -74,6 +74,7 @@ button img {
 
 .input .answers {
   display: flex;
+  margin-bottom: 2rem;
 }
 
 /* output */
@@ -82,9 +83,13 @@ button img {
   background-color: #fff;
 }
 
-/* 480px = 30rem */
+.output .chart {
+  display: block;
+}
 
-@media (min-width: 30rem) {
+/* 768px = 48rem */
+
+@media (min-width: 48rem) {
 
   .container {
     align-items: flex-start;
@@ -107,6 +112,9 @@ button img {
   }
   
   .content .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 66.66%;
   }
   
