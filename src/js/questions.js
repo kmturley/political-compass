@@ -46,32 +46,33 @@
       type: 'social'
     }
   ];
-  var questionNum = 0;
+  var questionNum = 1;
 
   function setup() {
+    window.addEventListener('hashchange', onHash);
     answerEls.forEach(function(answerEl) {
       answerEl.addEventListener('click', onClick);
     });
-    load(0);
+    onHash();
   }
 
   function load(num) {
     console.log('questions.load', num);
-    var question = questions[num];
-    number.innerText = `Question ${num + 1}`;
+    var question = questions[num - 1];
+    number.innerText = `Question ${num}`;
     title.innerText = question.title;
     questionNum = num;
   }
 
   function onClick(e) {
     var num = Number(e.target.getAttribute('data-num'));
-    console.log('questions.answer', e.target, num);
-    questions[questionNum].answer = num;
-    update();
+    console.log('questions.answer', questionNum, '=', num);
+    questions[questionNum - 1].answer = num;
     e.target.blur();
-    if (questionNum < questions.length - 1) {
+    updateChart();
+    if (questionNum < questions.length) {
       answers.style.display = 'block';
-      load(questionNum + 1);
+      window.location.hash = questionNum + 1;
     } else {
       answers.style.display = 'none';
       number.innerText = `Complete!`;
@@ -79,23 +80,42 @@
     }
   }
 
-  function update() {
-    var results = {};
+  function onHash() {
+    var num = Number(window.location.hash.slice(1));
+    if (num) {
+      load(num);
+    } else {
+      reset();
+      updateChart();
+      load(1);
+    }
+  }
+
+  function reset() {
+    answers.style.display = 'block';
+    questions.forEach(function(question) {
+      delete question.answer;
+    });
+    console.log(questions);
+  }
+
+  function updateChart() {
+    var matches = 0;
+    var results = {
+      economic: 0,
+      social: 0,
+    };
     questions.forEach(function(question, index) {
       if (question.answer) {
-        var average = true;
-        if (!results[question.type]) {
-          results[question.type] = 0;
-          average = false;
-        }
         if (question.flip) {
           results[question.type] = results[question.type] - question.answer;
         } else {
           results[question.type] = results[question.type] + question.answer;
         }
-        if (average === true) {
+        if (matches > 0) {
           results[question.type] = results[question.type] / 2;
         }
+        matches += 1;
       }
     });
     console.log('results', results);
