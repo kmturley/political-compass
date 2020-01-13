@@ -6,20 +6,12 @@
   function setup() {
     var height = canvas.height = canvas.parentNode.clientWidth; // use width for square aspect ratio
     var width = canvas.width = canvas.parentNode.clientWidth;
-    var padding = 100;
+    var padding = 0;
     context.clearRect(0, 0, width, height);
     context.font = '16px sans-serif';
     textHeight = context.measureText('M').width;
     drawGrid(width, height, 40, padding, '#eee', 1);
     drawGrid(width, height, 10, padding, '#eee', 2);
-    drawLine(
-      { x: padding, y: height / 2},
-      { x: width - padding, y: height / 2}
-    );
-    drawLine(
-      { x: width / 2, y: padding},
-      { x: width / 2, y: height - padding}
-    );
     var labels = [
       { text: 'Communism', horizontal: 'left', vertical: 'top', x: 0, y: 0 },
       { text: 'Authoritarianism', horizontal: 'center',vertical: 'top', x: width / 2, y: 0 },
@@ -32,7 +24,7 @@
       { text: 'Individualism', horizontal: 'right', vertical: 'bottom', x: width, y: height },
     ];
     labels.forEach(function(label) {
-      drawText(label, padding);
+      drawText(label, 10);
     });
   }
 
@@ -63,27 +55,52 @@
   }
 
   function drawText(item, pad) {
-    var textWidth = context.measureText(item.text).width;
-    if (item.horizontal === 'center') {
-      item.x -= textWidth / 2;
-    }
-    if (item.horizontal === 'right') {
-      item.x -= textWidth;
-    }
+    context.save();
+    context.textAlign = 'center';
     if (item.vertical === 'top') {
-      item.y += pad - textHeight;
+      item.y += pad;
+      context.textBaseline = 'top';
+      if (item.horizontal == 'left') {
+        item.r = -45;
+        item.x += pad * 4;
+        item.y += pad * 3;
+      }
+      if (item.horizontal == 'right') {
+        item.r = 45;
+        item.x -= pad * 4;
+        item.y += pad * 3;
+      }
     }
     if (item.vertical === 'middle') {
-      item.y += textHeight / 2;
+      context.textBaseline = 'top';
+      if (item.horizontal == 'left') {
+        item.r = -90;
+        item.x += pad;
+      }
+      if (item.horizontal == 'right') {
+        item.r = 90;
+        item.x -= pad;
+      }
     }
     if (item.vertical === 'bottom') {
-      item.y -= pad - textHeight * 2;
+      item.y -= pad;
+      context.textBaseline = 'bottom';
+      if (item.horizontal == 'left') {
+        item.r = 45;
+        item.x += pad * 4;
+        item.y -= pad * 3;
+      }
+      if (item.horizontal == 'right') {
+        item.r = -45;
+        item.x -= pad * 4;
+        item.y -= pad * 3;
+      }
     }
-    // var padding = 10;
-    // context.fillStyle = '#fff';
-    // context.fillRect(item.x - padding, item.y - textHeight - padding, textWidth + (padding * 2), textHeight + (padding * 2));
+    context.translate(item.x, item.y);
+    context.rotate(item.r * Math.PI / 180);
     context.fillStyle = '#454545';
-    context.fillText(item.text, item.x, item.y);
+    context.fillText(item.text, 0, 0);
+    context.restore();
   }
 
   window.addEventListener('resize', function() {

@@ -59,12 +59,12 @@ button img {
 }
 
 .logo {
-  margin-bottom: 2rem;
+  display: block;
 }
 
-.container {
-  box-sizing: border-box;
-  padding: 2rem 1rem;
+.input,
+.logo {
+  padding: 1.5rem 1rem;
 }
 
 /* input */
@@ -76,7 +76,7 @@ button img {
 
 .input .answers {
   display: flex;
-  margin-bottom: 2rem;
+  justify-content: space-between;
 }
 
 /* output */
@@ -108,11 +108,12 @@ button img {
 @media (min-width: 48rem) {
 
   body {
-    background: linear-gradient(90deg, #fafafa calc(50% - 2rem), #fff calc(50% - 2rem));
+    background: linear-gradient(90deg, #fafafa calc(50% - 1rem), #fff calc(50% - 1rem));
   }
 
   .container {
     align-items: flex-start;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -136,6 +137,10 @@ button img {
     flex-direction: column;
     justify-content: center;
     width: 50%;
+  }
+
+  .content .input .answers {
+    justify-content: flex-start;
   }
   
   .content .output {

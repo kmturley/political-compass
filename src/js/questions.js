@@ -71,7 +71,7 @@
     e.target.blur();
     updateChart();
     if (questionNum < questions.length) {
-      answers.style.display = 'block';
+      answers.style.display = 'flex';
       window.location.hash = questionNum + 1;
     } else {
       answers.style.display = 'none';
@@ -92,7 +92,7 @@
   }
 
   function reset() {
-    answers.style.display = 'block';
+    answers.style.display = 'flex';
     questions.forEach(function(question) {
       delete question.answer;
     });
