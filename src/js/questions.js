@@ -100,27 +100,34 @@
   }
 
   function updateChart() {
-    var matches = 0;
     var results = {
-      economic: 0,
-      social: 0,
+      economic: {
+        matches: 0,
+        score: 0
+      },
+      social: {
+        matches: 0,
+        score: 0
+      }
     };
-    questions.forEach(function(question, index) {
+    questions.forEach(function(question) {
       if (question.answer) {
         if (question.flip) {
-          results[question.type] = results[question.type] - question.answer;
+          results[question.type].score = results[question.type].score - question.answer;
         } else {
-          results[question.type] = results[question.type] + question.answer;
+          results[question.type].score = results[question.type].score + question.answer;
         }
-        if (matches > 0) {
-          results[question.type] = results[question.type] / 2;
-        }
-        matches += 1;
+        results[question.type].matches += 1;
       }
     });
+    var economic = results['economic'].score / (results['economic'].matches || 1);
+    var social = results['social'].score / (results['social'].matches || 1);
+    console.log('questions', questions);
     console.log('results', results);
-    dot.style.left = ((results['economic'] + 1) / 2) * 100 + '%';
-    dot.style.top = ((results['social'] + 1) / 2) * 100 + '%';
+    console.log('economic', economic);
+    console.log('social', social);
+    dot.style.left = ((economic + 1) / 2) * 100 + '%';
+    dot.style.top = ((social + 1) / 2) * 100 + '%';
   }
 
   setup();
