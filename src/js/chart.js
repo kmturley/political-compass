@@ -1,7 +1,6 @@
 (function() {
   var canvas = document.getElementById('chart');
   var context = canvas.getContext('2d');
-  var textHeight = 0;
 
   function setup() {
     var height = canvas.height = canvas.parentNode.clientWidth; // use width for square aspect ratio
@@ -9,7 +8,6 @@
     var padding = 0;
     context.clearRect(0, 0, width, height);
     context.font = '16px sans-serif';
-    textHeight = context.measureText('M').width;
     drawGrid(width, height, 40, padding, '#eee', 1);
     drawGrid(width, height, 10, padding, '#eee', 2);
     var labels = [
